@@ -1,0 +1,49 @@
+    $('#form').submit(function(e){
+        e.preventDefault();
+        var start = 0;
+        var dats = $("#form").serializeArray();
+        var s = dats[2].value;
+        $.ajax({
+            url: "success/mail.php",
+            type: "POST",
+            data: [$('#form').serialize(), $.param({data: start})].join('&'),
+            success: function(response) {
+                start = 1;
+                var end = 0;
+                var data = JSON.parse(response);
+                var result;
+                for (var key in data) {
+                    result = data[key].replace('\n', '');
+                    if(result == s) {
+                        for(var count = 0; count < 3; count++) {
+                            $('#form').animate({'margin-left':'10px'},75);
+                            $('#form').animate({'margin-left':'-10px'},75);
+                        }
+                        $('#form').animate({'margin-left':'0px'},75);
+                        $('.attention').animate({'opacity':'1'},200);
+                        end = 1;
+                        break;
+                    }
+                }
+                if(end === 0) {
+                    $.ajax({
+                        url: "success/mail.php",
+                        type: "POST",
+                        data: [$('#form').serialize(), $.param({data: start})].join('&'),
+                        success: function(response) {
+                            $('.attention').css('display','none');
+                            $('.inp').animate({'opacity':'0','margin-left':'500px'},400);
+                            $('.inp').css('display','none');
+                            $('.suc').animate({'opacity':'1','margin-left':'30px'},400);
+                        },  
+                        error: function(response) {
+                            //обработка ошибок при отправке
+                        }
+                    });
+                }
+            },
+            error: function(response) {
+                //обработка ошибок при отправке
+            }  
+        });
+    });

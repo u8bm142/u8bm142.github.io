@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css?family=Russo+One');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+body {
+	text-align: center;
+	overflow-x: hidden;
+}
+
+h2 {
+	font-family: 'Russo One', 'sans-serif';
+	font-weight: 400;
+	margin-top: -20px;
+	font-size: 40px;
+}
+
+h2:nth-child(3) {
+		font-size: 35px;
+		padding-right: 20px;
+		font-family: 'Ubuntu' , 'sans-serif';
+	}
+
+.block_success {
+	margin: auto;
+	width: 90%;
+	background: #f7f7f7;	
+	padding: 50px 10px 50px 10px;
+	height: auto;
+	box-shadow: 0 0 10px 5px rgba(0,0,0,.1);
+	border-radius: 20px;
+	overflow: auto;
+}
+
+.block_success p {
+	font-family: 'Ubuntu' , 'sans-serif';
+	font-size: 22px;
+}
+
+.order_number span {
+	color: #FF0000;
+	font-size: 30px;
+}
+
+.success_png {
+	background: url(Success.png) no-repeat;
+	background-size: 100px;
+	margin: auto;
+	margin-bottom: 50px;
+	border-radius: 50% 50% 50% 50%;
+	width: 100px;
+	height: 100px;
+}
+
+.wait_png {
+	background: url(clock.png) no-repeat;
+	background-size: 100px;
+	margin: auto;
+	margin-bottom: 50px;	
+	width: 100px;
+	height: 100px;
+	background-position: center;		
+}
+
+form {
+	width: 100%;
+	height: 40px;
+	display: block;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+}
+
+input[type="email"] {
+	width: 250px;
+	height: 38px;
+	font-size: 18px;
+	padding-left: 20px;
+	border: none;
+	outline: none;
+	display: block;
+}
+
+.email {
+	margin-left: -7px;
+	width: 90px;
+	font-size: 16px;
+	background: lightgrey;
+	outline: none;
+	height: 40px;
+	display: block;	
+	border: none;
+}
+
+.suc {
+    width: 100px;
+    height: 45px;
+    background: url(Success.png) no-repeat;
+    background-size: 40px;
+    position: absolute;
+    margin-left: -300px;
+   /* margin-right: -5000px;
+    margin-left: 200px;*/
+    opacity: 0;    
+}
+
+.inp {
+    float: left;    
+}
+
+.attention {
+    width: 85%;
+    min-width: 250px;
+    position: absolute;
+    font-weight: bold;
+    color: red;
+    margin-top: 10px;
+    margin-left: auto;
+    opacity: 0;
+}
+
+
+
+@media (max-width: 720px) {
+	h2{
+		font-size: 23px;
+	}
+
+	h2:first-of-type {
+		margin-bottom: 50px;
+	}
+
+	h2:nth-child(3) {
+		font-size: 22px;
+	}
+
+	.order_number {
+		font-size: 18px;
+		margin-top: 30px;
+	}
+
+	.order_number span {
+		font-size: 25px;
+		display: block;
+		margin-top: 15px;
+
+	}
+
+	p.success {
+		font-size: 20px;
+	}
+
+	input[type="email"] {
+		width: 65%;
+		max-width: 250px
+	}
+}
